@@ -34,7 +34,7 @@ protected:
     int situation;
 
     common::State state;
-	common::Command commands[3];
+    vector<common::Command> commands;
     common::Debug debug;
 
 public:

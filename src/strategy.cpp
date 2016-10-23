@@ -24,6 +24,7 @@ Strategy::Strategy(){
 		r.alloc_ball(&ball, &v_ball);
 		our_team.push_back(r);
 		adversary_team.push_back(r);
+		commands.push_back(Command(0, 0));
 	}
 
 	our_team.at(0).set_task(Task::ATTACKER);
@@ -63,28 +64,6 @@ void Strategy::loop(){
 			send_commands();
 			// DON'T REMOVE send_data();
 		}else{
-			//cout << "teste" << endl;
-			for(int i = 0 ; i < 3 ; i++){
-				commands[i] = our_team.at(i).get_command();
-				commands[i].left = commands[i].left * 3.0;
-				commands[i].right = commands[i].right * 3.0;
-				commands[i].show();
-				if(commands[i].left < 0){
-					commands[i].left = 255 + fabs(commands[i].left);
-				}
-				if(commands[i].right < 0){
-					commands[i].right = 255 + fabs(commands[i].right);
-				}
-				cout << "plus" << endl;
-				commands[i].show();
-				cout << endl << endl;
-				commands[i].left = (int)commands[i].left;
-				commands[i].right = (int)commands[i].right;
-			}
-
-			//commands[0].show();
-
-			comm.sendSerialData(commands);
 			// Put your transmission code here
 		}
 
@@ -152,7 +131,7 @@ void Strategy::update_state_on_robots(){
 
 void Strategy::update_commands_from_robots(){
 	for(int i = 0 ; i < 3 ; i++){
-		commands[i] = our_team.at(i).get_command();
+		commands.at(i) = our_team.at(i).get_command();
 	}
 }
 

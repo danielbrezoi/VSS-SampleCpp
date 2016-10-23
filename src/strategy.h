@@ -11,7 +11,6 @@
 
 #include "sample.h"
 #include "robot.h"
-#include "SirSoccer-COM/Communication.h"
 
 using namespace std;
 using namespace common;
@@ -28,7 +27,6 @@ class Strategy : public Sample{
 		Sample :: common::Debug debug;
 	*/
 protected:
-	Communication comm;
 	vector<Robot> our_team;
 	vector<Robot> adversary_team;
 	btVector3 ball, v_ball;

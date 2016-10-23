@@ -61,8 +61,8 @@ void Sample::send_commands(){
 	for(int i = 0 ; i < 3 ; i++){
 		vss_command::Robot_Command *robot = global_commands.add_robot_commands();
 		robot->set_id(i);
-		robot->set_left_vel(commands[i].left);
-		robot->set_right_vel(commands[i].right);
+		robot->set_left_vel(commands.at(i).left);
+		robot->set_right_vel(commands.at(i).right);
 	}
 
     if(main_color == "yellow"){
