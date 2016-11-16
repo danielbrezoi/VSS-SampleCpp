@@ -12,7 +12,7 @@
 #include "iostream"
 #include "sstream"
 #include "math.h"
-#include "VSS-Interface/interface.h"
+#include "VSS-Interface/cpp/interface.h"
 #include "ompl.h"
 
 using namespace std;

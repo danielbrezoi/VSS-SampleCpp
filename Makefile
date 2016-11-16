@@ -31,8 +31,8 @@ FILE_NAMES = $(FILE_NAMES_SRC) $(FILE_NAMES_PROTOS)
 
 
 
-RELEASE = VSS-SampleStrategy
-DEBUG = VSS-SampleStrategy-Debug
+RELEASE = VSS-SampleCpp
+DEBUG = VSS-SampleCpp-Debug
 
 .cpp.o:
 	@$(CCX) $(INCLUDES) $(LIBRARIES) -Wall -Wformat -c -o $@ $< -w
@@ -44,10 +44,10 @@ all: message_compiling release
 	@echo Done ...
 
 message_compiling:
-	@echo Compiling VSS-SampleStrategy ...
+	@echo Compiling VSS-SampleCpp ...
 
 message_cleaning:
-	@echo Cleaning VSS-SampleStrategy ...
+	@echo Cleaning VSS-SampleCpp ...
 
 yellow:
 	./$(RELEASE) -c yellow
@@ -65,4 +65,4 @@ clean: message_cleaning
 	@rm $(RELEASE) $(FILE_NAMES)
 
 proto:
-	cd src/VSS-Interface/protos && make -f protos.make
+	cd src/VSS-Interface && ./protos.sh
